@@ -1,0 +1,54 @@
+void print_winner(void)
+{
+
+    int biggest = 0;
+    int biggest_count = 0;
+
+    int j = 0;
+    while (j < candidate_count)
+    {
+
+        if (j == 0)
+        {
+
+            biggest = candidates[j].votes;
+
+        }
+        else
+        {
+
+            if (candidates[j].votes > candidates[j - 1].votes)
+            {
+
+                biggest = candidates[j].votes;
+
+            }
+
+            else if (candidates[j].votes < candidates[j - 1].votes)
+            {
+
+                biggest = candidates[j - 1].votes;
+
+            }
+
+
+        }
+
+        j++;
+
+    }
+
+    for (int l = 0; l < candidate_count; l++)
+    {
+
+        if (candidates[l].votes == biggest)
+        {
+
+            printf("%s\n", candidates[l].name);
+
+        }
+
+    }
+
+    return;
+}
